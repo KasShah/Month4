@@ -1,19 +1,21 @@
-{% extends 'index.html'%}
+{% extends 'index.html' %}
 
-{% block content%}
+{% block content %}
 <h1>
-    Product
+    Products
 </h1>
-
     {% for product in products %}
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ product.title }}</h5>
-        <p class="card-text">{{ product.adout }}</p>
-        <a href="#" class="btn btn-primary">More</a>
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text">{{ product.about }}</p>
+            {% for category in product.categories.all %}
+                <a href="#" class="btn btn-primary">#{{ categories.title }}</a>
+            {% endfor %}
+          <a href="#" class="btn btn-primary">More</a>
+        </div>
       </div>
-    </div>
     {% endfor %}
 
 
