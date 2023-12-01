@@ -17,6 +17,16 @@ def products_view(request):
 
         return render(request, 'products/products.html', context=context)
 
+def post_d_view(request, post_id):
+    if request.method =='GET':
+        products = Product.objects.get(id=post_id)
+
+        context = {
+            'products': products
+            }
+
+        return render(request, 'products/product_detail.html', context)
+
 
 def category_view(request):
     if request.method =='GET':
@@ -32,3 +42,5 @@ def category_view(request):
             'products/categories.html',
             context=context
         )
+
+
