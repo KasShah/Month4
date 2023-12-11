@@ -7,20 +7,20 @@
     </h1>
 
     <h2>
-    {{ product.title }}
+        {{ product.title }}
     </h2>
 
-    <h3>
-    {{ product.rate }}
-    </h3>
+    <h2>
+        {{ product.rate }}
+    </h2>
 
     <p>
-    {{ product.about }}
+        {{ product.about }}
     </p>
 
-    <img src="/media/{{ product.image }}" width="300">
+    <img src="/media/{{ product.photo }}" width="500">
 
-    {% for category in product.categories.all %}
+    {% for category in post.categories.all %}
         <a href="#" class="btn btn-primary">#{{ category }}</a>
     {% endfor %}
 
@@ -34,5 +34,11 @@
     {% for comment in product.comments.all %}
         <p>{{ comment.text }}</p>
     {% endfor %}
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="create_comment">
+    </form>
 
 {% endblock %}
